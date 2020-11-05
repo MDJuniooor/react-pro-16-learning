@@ -13,7 +13,7 @@ for (let i = 1; i <= 503; i++) {
   })
 }
 var orders = [];
-for (let i = 1; i <= 103; i++) {
+for (let i = 1; i <= 503; i++) {
   var fname = faker.name.firstName(); var sname = faker.name.lastName();
   var order = {
     id: i, name: `${fname} ${sname}`,
