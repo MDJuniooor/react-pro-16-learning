@@ -5,7 +5,7 @@ export const CartReducer = (storeData, action) => {
     switch(action.type){
         case ActionTypes.CART_ADD:
             const p = action.payload.product;
-            const q = action.payload.quantity;
+            const q = parseInt(action.payload.quantity);
             let existing = newStore.cart.find(item => item.product.id === p.id);
             if (existing) {
                 existing.quantity += q;
