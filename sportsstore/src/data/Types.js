@@ -3,6 +3,6 @@ export const DataTypes = {
     CATEGORIES: "categories"
 }
 
-export const constActionTypes = {
+export const ActionTypes = {
     DATA_LOAD: "data_load"
 }
