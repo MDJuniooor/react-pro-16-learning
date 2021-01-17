@@ -1,13 +1,21 @@
 import React, {Component} from 'react';
 import './App.css';
+import { ThemeButton } from './ThemeButton';
 
 export default class App extends Component {
 
   constructor(props){
     super(props);
     this.state = {
-      message: "ready"
+      message: "ready",
+      counter: 0
     }
+  }
+  selectTheme = (newTheme) => {
+    this.setState({
+      theme: newTheme,
+      message: `Theme: ${newTheme}`
+    });
   }
 
   render() {
@@ -17,9 +25,8 @@ export default class App extends Component {
           { this.state.message}
         </div>
         <div className="text-center">
-          <button className="btn btn-primary" onClick={ () => {this.setState({message:"Clicked!!"})}}>
-          Click me
-          </button>
+          <ThemeButton theme="primary" callback={this.selectTheme} />
+          <ThemeButton theme="danger" callback={this.selectTheme} />
         </div>
       </div>
     )
