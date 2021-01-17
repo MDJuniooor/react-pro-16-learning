@@ -7,7 +7,7 @@ const { buildSchema } = require("graphql");
 const graphqlHTTP = require("express-graphql");
 const queryResolvers = require("./serverQueriesResolver");
 const mutationResolvers = require("./serverMutationsResolver");
-// const auth = require("./authMiddleware");
+const auth = require("./authMiddleware");
 // const history = require("connect-history-api-fallback");
 
 const fileName = process.argv[2] || "./data.js"
@@ -39,7 +39,7 @@ createServer();
 // app.use("/", express.static("./build"));
 app.use(cors());
 app.use(jsonServer.bodyParser)
-// app.use(auth);
+app.use(auth);
 app.use("/api", (req, resp, next) => router(req, resp, next));
 app.use("/graphql", (req, resp, next) => graph(req, resp, next));
 
